@@ -15,4 +15,4 @@ script:
   - cp -a dist/static/. docs/site/
   - git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"
   - git add docs && git commit --message "Travis build $TRAVIS_BUILD_NUMBER [skip travis-ci]"
-  - git push --quiet https://Shynixn:$GH_TOKEN@github.com/Shynixn/PetBlocks.git HEAD:master
+  - git push --quiet https://Shynixn:$GH_TOKEN@github.com/Shynixn/DemoAngularStatic.git HEAD:master
