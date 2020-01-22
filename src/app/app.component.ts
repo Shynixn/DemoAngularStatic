@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 export class AppComponent { 
  constructor (private idle: IdleMonitorService) { } 
 
-  title = 'This is my static angular project a';
+  title = 'my-first-project';
 }
