@@ -8,7 +8,7 @@ cache:
 install:
   - npm install
 script:
-  - ng build
+  - ng build --prod --base-href=/DemoAngularStatic/site/
   - npm run scully
   - rm -r -f docs/site
   - mkdir docs/site
