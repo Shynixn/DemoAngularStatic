@@ -12,9 +12,13 @@
     <label for="address">
       Address
     </label>
-    <input id="address" type="text" formControlName="address">
+    <mat-form-field appearance="outline">
+      <mat-label>Outline form field</mat-label>
+      <input style="min-width: 100%" matInput id="address" type="text" formControlName="address">
+      <mat-hint>Enter the name of a book or user</mat-hint>
+    </mat-form-field>
   </div>
-  <button class="button" type="submit">Search</button>
+  <button mat-raised-button color="primary" class="button" type="submit">Search</button>
 </form>
 <ul class="heroes">
   <li *ngFor="let book of books | async">

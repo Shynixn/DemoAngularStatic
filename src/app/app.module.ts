@@ -17,6 +17,8 @@ import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ExampleInterceptor} from "./app.interceptor";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,11 @@ import {ExampleInterceptor} from "./app.interceptor";
     FormsModule,
     StoreModule.forRoot({count: counterReducer, bookStore: bookReducer}),
     EffectsModule.forRoot([AppEffects, BookEffects, CounterEffects]),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
   ],
   bootstrap: [AppComponent],
   providers: [BookService, BookFacade, CounterFacade, CounterService,
