@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {AppEffects} from './app.effects';
@@ -16,6 +16,7 @@ import {BookFacade} from "./logic/facades/book.facade";
 import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ExampleInterceptor} from "./app.interceptor";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EffectsModule.forRoot([AppEffects, BookEffects, CounterEffects]),
   ],
   bootstrap: [AppComponent],
-  providers: [BookService, BookFacade, CounterFacade, CounterService]
+  providers: [BookService, BookFacade, CounterFacade, CounterService,
+    { provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptor, multi: true }
+    ]
 })
 export class AppModule {
 }

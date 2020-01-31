@@ -17,7 +17,7 @@ export class BookService {
    */
   getBooks(): Observable<Book[]> {
     console.log("Request pokemons");
-    return this.http.get<PokemonResponse>("https://pokeapi.co/api/v2/pokemon").pipe(
+    return this.http.get<PokemonResponse>("/pokemon").pipe(
       map(response => {
         console.log("item:" + response);
         return response.results.map(item => ({

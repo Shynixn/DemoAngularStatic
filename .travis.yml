@@ -8,11 +8,13 @@ cache:
 install:
   - npm install
 script:
-  - ng build --prod --deploy-url=/DemoAngularStatic/site/
+  - ng build --prod
   - npm run scully
   - rm -r -f docs/site
   - mkdir docs/site
   - cp -a dist/static/. docs/site/
+  - sed -i 's_base href="/"_base href="/DemoAngularStatic/Site/"_g' 'docs/site/index.html'
+  - sed -i 's_base href="/"_base href="/DemoAngularStatic/Site/"_g' 'docs/site/pokemon/index.html'
   - git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"
   - git add docs && git commit --message "Travis build $TRAVIS_BUILD_NUMBER [skip travis-ci]"
   - git push --quiet https://Shynixn:$GH_TOKEN@github.com/Shynixn/DemoAngularStatic.git HEAD:master
