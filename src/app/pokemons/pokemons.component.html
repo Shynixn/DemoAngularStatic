@@ -4,3 +4,13 @@
     <h1>{{pokemon.name}}</h1>
   </li>
 </ul>
+
+<button (click)="clickMe()">ClicKMe</button>
+
+<button id="increment" (click)="increment()">Increment</button>
+
+<div>Current Count: {{ count$ | async }}</div>
+
+<button id="decrement" (click)="decrement()">Decrement</button>
+
+<button id="reset" (click)="reset()">Reset Counter</button>

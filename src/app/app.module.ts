@@ -9,7 +9,12 @@ import { StoreModule } from '@ngrx/store';
 import { AppEffects } from './app.effects';
 import { PokemonsComponent } from './pokemons/pokemons.component';
 import {reducer} from "./logic/reducers/pokemon.reducers";
-import {PokemonFacade} from "./logic/facades/pokemon.facade";
+import {PokemonEffects} from "./logic/effects/pokemon.effect";
+import {PokemonService} from "./logic/services/pokemon.service";
+import {counterReducer} from "./logic/reducers/counter.reducer";
+import {CounterFacade} from "./logic/facades/counter.facade";
+import {CounterService} from "./logic/services/counter.service";
+import {CounterEffects} from "./logic/effects/counter.effect";
 
 @NgModule({
   declarations: [
@@ -20,10 +25,10 @@ import {PokemonFacade} from "./logic/facades/pokemon.facade";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ pokemon : reducer}),
-    EffectsModule.forRoot([AppEffects]),
+    StoreModule.forRoot({ count: counterReducer }),
+    EffectsModule.forRoot([AppEffects, PokemonEffects, CounterEffects]),
   ],
   bootstrap: [AppComponent],
-  providers: [PokemonFacade]
+  providers: [PokemonService, CounterFacade, CounterService]
 })
 export class AppModule { }

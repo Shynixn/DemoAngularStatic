@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {PokemonFacade} from "../logic/facades/pokemon.facade";
+import {select, Store} from "@ngrx/store";
+import {decrement, increment, reset} from "../logic/actions/counter.actions";
+import {CounterFacade} from "../logic/facades/counter.facade";
 
 @Component({
   selector: 'app-pokemons',
@@ -8,13 +10,24 @@ import {PokemonFacade} from "../logic/facades/pokemon.facade";
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
-  pokemons$: Observable<Pokemon[]>;
+  count$: Observable<number>;
 
-  constructor(private _pokemonFacade: PokemonFacade) {
-    this.pokemons$ = this._pokemonFacade.waterTypePokemons$
+  constructor(private facade : CounterFacade) {
+    this.count$ = facade.count$;
   }
 
-  ngOnInit() {
-    this._pokemonFacade.loadAll();
+  increment() {
+    this.facade.increment();
+  }
+
+  decrement() {
+    this.facade.decrement();
+  }
+
+  reset() {
+    this.facade.reset();
+  }
+
+  ngOnInit(): void {
   }
 }

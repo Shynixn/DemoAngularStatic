@@ -20,6 +20,7 @@ export class PokemonService {
       name: "Pummelluf"
     }
     ];
-    return Observable.create(() => pokemons);
+    var obs =  Observable.create(() => pokemons);
+    return obs;
   }
 }
