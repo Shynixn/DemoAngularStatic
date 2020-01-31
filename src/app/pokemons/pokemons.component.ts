@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {select, Store} from "@ngrx/store";
-import {decrement, increment, reset} from "../logic/actions/counter.actions";
-import {CounterFacade} from "../logic/facades/counter.facade";
+import {BookFacade} from "../logic/facades/book.facade";
 
 @Component({
   selector: 'app-pokemons',
@@ -10,24 +8,23 @@ import {CounterFacade} from "../logic/facades/counter.facade";
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
-  count$: Observable<number>;
+  /**
+   * Book property.
+   */
+  books: Observable<Book[]>;
 
-  constructor(private facade : CounterFacade) {
-    this.count$ = facade.count$;
+  /**
+   * Creates a new instance of the component with the bookFacade as dependency.
+   * @param facade facade.
+   */
+  constructor(private facade: BookFacade) {
+    this.books = facade.books$;
   }
 
-  increment() {
-    this.facade.increment();
-  }
-
-  decrement() {
-    this.facade.decrement();
-  }
-
-  reset() {
-    this.facade.reset();
-  }
-
+  /**
+   * On init.
+   */
   ngOnInit(): void {
+    this.facade.loadBooks()
   }
 }

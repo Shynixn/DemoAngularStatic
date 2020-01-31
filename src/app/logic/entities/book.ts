@@ -1,3 +1,3 @@
-type Pokemon = {
+type Book = {
   name: string
 }

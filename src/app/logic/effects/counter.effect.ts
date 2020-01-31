@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, Effect, ofType} from "@ngrx/effects";
 import {catchError, map, mergeMap, switchMap} from "rxjs/operators";
-import {errorLoadingPokemons, loadedPokemons, loadPokemons} from "../actions/pokemon.actions";
 import {CounterService} from "../services/counter.service";
 import {increment, realIncrement} from "../actions/counter.actions";
 import {EMPTY} from "rxjs";
