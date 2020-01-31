@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {decrement, increment, reset} from "../actions/counter.actions";
 import {select, Store} from "@ngrx/store";
+import {selectFeature} from "../selectors/counter.selector";
 
 @Injectable()
 export class CounterFacade {
@@ -15,7 +16,7 @@ export class CounterFacade {
    * @param store store.
    */
   constructor(private store: Store<{ count: number }>) {
-    this.count$ = store.pipe(select('count'));
+    this.count$ = store.pipe(select(selectFeature));
   }
 
   increment() {
