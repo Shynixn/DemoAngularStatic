@@ -1,6 +1,23 @@
 <h1>List of Pokemons</h1>
+<form [formGroup]="SearchForm" (ngSubmit)="onSubmit(SearchForm.value)">
+
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="address">
+      Address
+    </label>
+    <input id="address" type="text" formControlName="address">
+  </div>
+  <button class="button" type="submit">Search</button>
+</form>
 <ul class="heroes">
   <li *ngFor="let book of books | async">
-    <h1>{{book.name}}</h1>
+    <h5>{{book.name}}</h5>
   </li>
 </ul>

@@ -15,6 +15,7 @@ import {BookService} from "./logic/services/book.service";
 import {BookFacade} from "./logic/facades/book.facade";
 import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import {bookReducer} from "./logic/reducers/book.reducer";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
     StoreModule.forRoot({count: counterReducer, bookStore: bookReducer}),
     EffectsModule.forRoot([AppEffects, BookEffects, CounterEffects]),
   ],
