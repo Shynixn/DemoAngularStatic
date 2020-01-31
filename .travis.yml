@@ -15,6 +15,7 @@ script:
   - cp -a dist/static/. docs/site/
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/index.html'
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/pokemon/index.html'
+  - wget 'https://pokeapi.co/api/v2/pokemon?offset=20&limit=200' -O 'docs/site/pokemon/pokemon-offset-20-limit-200.json'
   - git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"
   - git add docs && git commit --message "Travis build $TRAVIS_BUILD_NUMBER [skip travis-ci]"
   - git push --quiet https://Shynixn:$GH_TOKEN@github.com/Shynixn/DemoAngularStatic.git HEAD:master
