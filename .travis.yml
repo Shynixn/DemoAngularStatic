@@ -8,6 +8,7 @@ cache:
 install:
   - npm install
 script:
+  - sed -i 's_translate.setDefaultLang('en');_translate.setDefaultLang('de');_g' 'src/app/app.component.ts'
   - ng build --prod
   - npm run scully
   - rm -r -f docs/site
@@ -15,6 +16,13 @@ script:
   - cp -a dist/static/. docs/site/
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/index.html'
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/pokemon/index.html'
+  - mkdir docs/site/en
+  - sed -i 's_translate.setDefaultLang('de');_translate.setDefaultLang('en');_g' 'src/app/app.component.ts'
+  - ng build --prod
+  - npm run scully
+  - cp -a dist/static/. docs/site/en/
+  - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/en/"_g' 'docs/site/en/index.html'
+  - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/en/"_g' 'docs/site/en/pokemon/index.html'
   - wget 'https://pokeapi.co/api/v2/pokemon?offset=20&limit=200' -O 'docs/site/pokemon/pokemon-offset-20-limit-200.json'
   - git config --global user.email "travis@travis-ci.org" && git config --global user.name "Travis CI"
   - git add docs && git commit --message "Travis build $TRAVIS_BUILD_NUMBER [skip travis-ci]"

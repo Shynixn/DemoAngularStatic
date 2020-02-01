@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {AppEffects} from './app.effects';
@@ -16,10 +16,11 @@ import {BookFacade} from "./logic/facades/book.facade";
 import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ExampleInterceptor} from "./app.interceptor";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from "@angular/material";
 import {StaticService} from "./logic/services/staticpage.service";
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,13 @@ import {StaticService} from "./logic/services/staticpage.service";
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     StoreModule.forRoot({count: counterReducer, bookStore: bookReducer}),
     EffectsModule.forRoot([AppEffects, BookEffects, CounterEffects]),
     BrowserAnimationsModule,
@@ -41,9 +49,12 @@ import {StaticService} from "./logic/services/staticpage.service";
     MatInputModule,
   ],
   bootstrap: [AppComponent],
-  providers: [BookService, BookFacade, CounterFacade, CounterService, StaticService,
-    {provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptor, multi: true}
+  providers: [BookService, BookFacade, CounterFacade, CounterService, StaticService
   ]
 })
 export class AppModule {
+}
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/lang/", ".json");
 }
