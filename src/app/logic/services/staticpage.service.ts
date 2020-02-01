@@ -15,7 +15,8 @@ export class StaticService {
   onBuildTimeOnly(className, callback: (() => any)) {
     var elements = document.getElementsByClassName(className);
     for (var i = 0; i < elements.length; i++) {
-      console.log(elements[i].children.length);
+      console.log("Children Length:" + elements[i].children.length)
+      console.log("INNTERHTML:" + elements[i].innerHTML);
       if (elements[i].children.length == 0) {
         callback()
       }
