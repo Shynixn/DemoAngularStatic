@@ -15,10 +15,11 @@ import {BookService} from "./logic/services/book.service";
 import {BookFacade} from "./logic/facades/book.facade";
 import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ExampleInterceptor} from "./app.interceptor";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from "@angular/material";
+import {StaticService} from "./logic/services/staticpage.service";
 
 @NgModule({
   declarations: [
@@ -40,9 +41,9 @@ import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from
     MatInputModule,
   ],
   bootstrap: [AppComponent],
-  providers: [BookService, BookFacade, CounterFacade, CounterService,
-    { provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptor, multi: true }
-    ]
+  providers: [BookService, BookFacade, CounterFacade, CounterService, StaticService,
+    {provide: HTTP_INTERCEPTORS, useClass: ExampleInterceptor, multi: true}
+  ]
 })
 export class AppModule {
 }

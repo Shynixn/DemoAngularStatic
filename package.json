@@ -27,6 +27,7 @@
     "@ngrx/effects": "^8.6.0",
     "@ngrx/entity": "^8.6.0",
     "@ngrx/store": "^8.6.0",
+    "@ngx-translate/core": "^11.0.1",
     "@scullyio/init": "0.0.17",
     "@scullyio/ng-lib-v8": "latest",
     "@scullyio/scully": "latest",

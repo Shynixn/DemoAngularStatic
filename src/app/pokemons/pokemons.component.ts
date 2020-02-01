@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {BookFacade} from "../logic/facades/book.facade";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {StaticService} from "../logic/services/staticpage.service";
 
 @Component({
   selector: 'app-pokemons',
@@ -14,23 +15,22 @@ export class PokemonsComponent implements OnInit {
    */
   books: Observable<Book[]>;
   /**
-   * SearchForm property.
+   * searchForm property.
    */
-  SearchForm: FormGroup;
+  searchForm: FormGroup;
 
   /**
    * Creates a new instance of the component with the bookFacade as dependency.
    * @param facade facade.
    */
-  constructor(private facade: BookFacade, private formBuilder : FormBuilder) {
+  constructor(private facade: BookFacade, private formBuilder: FormBuilder, private staticService: StaticService) {
     this.books = facade.books$;
-    this.SearchForm = this.formBuilder.group({
-      name: 'What',
-      address: ''
+    this.searchForm = this.formBuilder.group({
+      queryText: "",
     });
   }
 
-  onSubmit(payload){
+  onSubmit(payload) {
     console.log("Submit" + JSON.stringify(payload))
   }
 
@@ -38,6 +38,8 @@ export class PokemonsComponent implements OnInit {
    * On init.
    */
   ngOnInit(): void {
-    this.facade.loadBooks()
+    this.staticService.onBuildTimeOnly("build-books", () =>
+      this.facade.loadBooks()
+    );
   }
 }

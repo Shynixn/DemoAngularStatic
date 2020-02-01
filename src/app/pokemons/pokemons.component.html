@@ -1,26 +1,15 @@
 <h1>List of Pokemons</h1>
-<form [formGroup]="SearchForm" (ngSubmit)="onSubmit(SearchForm.value)">
-
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
   <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="address">
-      Address
-    </label>
     <mat-form-field appearance="outline">
       <mat-label>Outline form field</mat-label>
-      <input style="min-width: 100%" matInput id="address" type="text" formControlName="address">
+      <input style="min-width: 100%" matInput id="queryText" type="text" formControlName="queryText">
       <mat-hint>Enter the name of a book or user</mat-hint>
     </mat-form-field>
   </div>
   <button mat-raised-button color="primary" class="button" type="submit">Search</button>
 </form>
-<ul class="heroes">
+<ul class="heroes build-books">
   <li *ngFor="let book of books | async">
     <h5>{{book.name}}</h5>
   </li>
