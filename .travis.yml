@@ -9,6 +9,7 @@ install:
   - npm install
 script:
   - sed -i 's_translate.setDefaultLang('en');_translate.setDefaultLang('de');_g' 'src/app/app.component.ts'
+  - echo "$(cat src/app/app.component.ts)"
   - ng build --prod
   - npm run scully
   - rm -r -f docs/site
