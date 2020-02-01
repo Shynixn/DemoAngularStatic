@@ -9,7 +9,7 @@ import {TranslateService} from "@ngx-translate/core";
 })
 export class AppComponent { 
  constructor (private idle: IdleMonitorService,  public scully: ScullyRoutesService, private translate: TranslateService) {
-   translate.setDefaultLang('en');
+   translate.setDefaultLang("en");
  }
 
   title = 'my-first-project';
