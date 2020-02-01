@@ -37,9 +37,12 @@ export class PokemonsComponent implements OnInit {
   /**
    * On init.
    */
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.staticService.onBuildTimeOnly("build-books", () =>
       this.facade.loadBooks()
     );
+  }
+
+  ngOnInit(): void {
   }
 }
