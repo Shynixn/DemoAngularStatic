@@ -17,17 +17,8 @@ import {BookEffects} from "./logic/effects/book.effect";
 import {bookReducer} from "./logic/reducers/book.reducer";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MatButtonModule, MatCardModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatSidenavModule, MatTableModule, MatToolbarModule
-} from "@angular/material";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
   declarations: [
@@ -40,7 +31,6 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -50,16 +40,7 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     }),
     StoreModule.forRoot({count: counterReducer, bookStore: bookReducer}),
     EffectsModule.forRoot([AppEffects, BookEffects, CounterEffects]),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatIconModule,
-    MatInputModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatTableModule,
+    BrowserAnimationsModule
   ],
   bootstrap: [AppComponent],
   providers: [BookService, BookFacade, CounterFacade, CounterService
