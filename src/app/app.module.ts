@@ -19,11 +19,19 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FrontPageSearchComponent } from './front-page-search/front-page-search.component';
+import { FrontPageDescriptionComponent } from './front-page-description/front-page-description.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonsComponent
+    PokemonsComponent,
+    NavbarComponent,
+    FrontPageSearchComponent,
+    FrontPageDescriptionComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
