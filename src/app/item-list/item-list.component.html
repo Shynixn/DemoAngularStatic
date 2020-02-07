@@ -1,0 +1,27 @@
+<div class="section">
+  <div class="container">
+
+  </div>
+
+  <div class="row white">
+
+    <div class="col s12 m12 l2 xl2">
+      <h1>Description</h1>
+      <h1>Description</h1>
+      <h1>Description</h1>
+      <h1>Description</h1>
+
+    </div>
+
+    <div class="col s12 m12 l10 xl10">
+      <div class="row" style="margin: 5px">
+        <ng-container *ngFor="let item of listItems$ | async">
+          <app-item-list-item [listItem]="item"></app-item-list-item>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>

@@ -23,6 +23,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FrontPageSearchComponent } from './front-page-search/front-page-search.component';
 import { FrontPageDescriptionComponent } from './front-page-description/front-page-description.component';
 import { FooterComponent } from './footer/footer.component';
+import { ItemListComponent } from './item-list/item-list.component';
+import { ItemListItemComponent } from './item-list-item/item-list-item.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { FooterComponent } from './footer/footer.component';
     NavbarComponent,
     FrontPageSearchComponent,
     FrontPageDescriptionComponent,
-    FooterComponent
+    FooterComponent,
+    ItemListComponent,
+    ItemListItemComponent
   ],
   imports: [
     BrowserModule,
