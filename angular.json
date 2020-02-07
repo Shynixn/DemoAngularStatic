@@ -24,8 +24,11 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/materialize-css/dist/css/materialize.css",
-              "src/styles.css"
+              "src/styles.css",
+              {
+                "input": "./node_modules/materialize-css/dist/css/materialize.css",
+                "bundleName": "materialize.css",
+              }
             ],
             "scripts": [
               "./node_modules/materialize-css/dist/js/materialize.js"
