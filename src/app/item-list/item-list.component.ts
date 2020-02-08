@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
 import {select} from "@ngrx/store";
 import {allBooks} from "../logic/selectors/book.selector";
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-item-list',
@@ -64,6 +65,11 @@ export class ItemListComponent implements OnInit {
 
       observer.complete();
     });
+
+    console.log("MEME");
   }
 
+  ngAfterViewInit(){
+    M.FormSelect.init(document.querySelector('select'));
+  }
 }

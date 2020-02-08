@@ -25,10 +25,7 @@
             ],
             "styles": [
               "src/styles.css",
-              {
-                "input": "./node_modules/materialize-css/dist/css/materialize.css",
-                "bundleName": "materialize.css",
-              }
+              "src/styles.sass.scss"
             ],
             "scripts": [
               "./node_modules/materialize-css/dist/js/materialize.js"
