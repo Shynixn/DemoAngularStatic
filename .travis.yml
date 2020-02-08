@@ -17,6 +17,7 @@ script:
   - cp -a dist/static/. docs/site/
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/index.html'
   - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/pokemon/index.html'
+  - sed -i 's_base href="/"_base href="/DemoAngularStatic/site/"_g' 'docs/site/collection/index.html'
   - mkdir docs/site/en
   - sed -i 's_translate.setDefaultLang("de");_translate.setDefaultLang("en");_g' 'src/app/app.component.ts'
   - ng build --prod
