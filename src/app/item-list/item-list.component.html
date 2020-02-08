@@ -1,59 +1,65 @@
 <div class="section">
-
-  <div class="row">
+  <div class="row flex">
     <div class="col s12 m12 l2 xl2">
-      <h1>Description</h1>
-    </div>
-    <div class="col s12 m12 l10">
-      <div style="margin-left: 25px; margin-right: 25px">
-        <div class="row">
-          <div class="card white">
-            <div class="card-content grey-text">
-              <div class="input-field">
-                <input id="search-input"  type="text">
-                <label for="search-input">Suche...</label>
-              </div>
-
-              <div class="row">
-                <div class="col s6">
-                  <div class="input-field">
-                    <select>
-                      <option value="1">Ascending</option>
-                      <option value="2">Descending</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col s6">
-                  <div class="input-field">
-                    <select>
-                      <option value="1">Ascending</option>
-                      <option value="2">Descending</option>
-                    </select>
-                  </div>
-                </div>
-
-              </div>
-
-
-            </div>
+      <div class="card white"  style="min-height: 100%; padding-left: 15px">
+        <div class="card-content grey-text">
+          <div class="row">
+            <label>
+              <input type="checkbox" class="filled-in"/>
+              <span>Bücher</span>
+            </label>
+          </div>
+          <div class="row">
+            <label>
+              <input type="checkbox" class="filled-in"/>
+              <span>Nutzer</span>
+            </label>
           </div>
         </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="row">
-
-    <div class="col s12 m12 l2 xl2">
-      <h1>WAHZT</h1>
-      <h1>Description</h1>
-      <h1>Description</h1>
-      <h1>Description</h1>
-
-    </div>
 
     <div class="col s12 m12 l10 xl10">
+      <div style="margin-left: 25px; margin-right: 25px">
+        <div class="row">
+          <div class="card white">
+            <div class="card-content grey-text">
+              <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch(searchForm.value)">
+                <div class="row">
+                  <div class="col s8">
+                    <div class="input-field">
+                      <input id="search-input" formControlName="query" type="text">
+                      <label for="search-input">Suche...</label>
+                    </div>
+                  </div>
+                  <div class="col s4">
+                    <button class="btn waves-light blue" style="margin-top: 25px; width: 100%">
+                      Suche
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col s4">
+                    <a href="#"><u>Erweitere Suche einblenden</u></a>
+                  </div>
+                </div>
+                <div class="row" hidden>
+                  <div class="col s6">
+                    <div class="input-field">
+                      <select>
+                        <option value="1">Ascending</option>
+                        <option value="2">Descending</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="row" style="margin: 5px">
         <ng-container *ngFor="let item of listItems$ | async">
           <app-item-list-item [listItem]="item"></app-item-list-item>
@@ -61,8 +67,4 @@
       </div>
     </div>
   </div>
-
-
-  <h1>NAw</h1>
-
 </div>

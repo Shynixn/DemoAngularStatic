@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
 import {select} from "@ngrx/store";
 import {allBooks} from "../logic/selectors/book.selector";
 import * as M from 'materialize-css';
+import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-item-list',
@@ -14,62 +16,73 @@ export class ItemListComponent implements OnInit {
    * List items.
    */
   listItems$: Observable<ListItem[]>;
+  /**
+   * Search form.
+   */
+  searchForm: FormGroup;
 
-  constructor() {
+  constructor(private router : Router, private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
+    this.searchForm = this.formBuilder.group({
+      query: '',
+    });
     this.listItems$ = Observable.create(observer => {
-      let item1 : ListItem = {
-        title : "meme",
-        previewImage : "no",
+      let item1: ListItem = {
+        title: "meme",
+        previewImage: "no",
         backgroundColor: "blue"
       };
-      let item2 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item2: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "light-blue"
       };
-      let item3 : ListItem = {
-        title : "This is a very long",
-        previewImage : "no",
+      let item3: ListItem = {
+        title: "This is a very long",
+        previewImage: "no",
         backgroundColor: "blue"
       };
-      let item4 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item4: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "blue"
       };
-      let item5 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item5: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "blue"
       };
-      let item6 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item6: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "purple"
       };
-      let item7 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item7: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "green"
       };
-      let item8 : ListItem = {
-        title : "This is a very long title",
-        previewImage : "no",
+      let item8: ListItem = {
+        title: "This is a very long title",
+        previewImage: "no",
         backgroundColor: "orange"
       };
-
       observer.next(Array(item1, item2, item3, item4, item5, item6, item7, item8));
-
       observer.complete();
     });
-
     console.log("MEME");
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     M.FormSelect.init(document.querySelector('select'));
+  }
+
+  /**
+   * Executes a search request.
+   */
+  onSubmitSearch(submitData) {
+    this.router.navigate(['/collection'], {queryParams: {search: submitData.query}})
   }
 }

@@ -8,6 +8,9 @@ import {Form, FormBuilder, FormGroup} from "@angular/forms";
   styleUrls: ['./front-page-search.component.css']
 })
 export class FrontPageSearchComponent implements OnInit {
+  /**
+   * Search form.
+   */
   searchForm: FormGroup;
 
   constructor(private router: Router, private formBuilder: FormBuilder) {
