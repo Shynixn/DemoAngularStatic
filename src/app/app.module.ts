@@ -25,6 +25,8 @@ import { FrontPageDescriptionComponent } from './front-page-description/front-pa
 import { FooterComponent } from './footer/footer.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemListItemComponent } from './item-list-item/item-list-item.component';
+import { PageCollectionComponent } from './page-collection/page-collection.component';
+import { PageHomeComponent } from './page-home/page-home.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { ItemListItemComponent } from './item-list-item/item-list-item.component
     FrontPageDescriptionComponent,
     FooterComponent,
     ItemListComponent,
-    ItemListItemComponent
+    ItemListItemComponent,
+    PageCollectionComponent,
+    PageHomeComponent
   ],
   imports: [
     BrowserModule,

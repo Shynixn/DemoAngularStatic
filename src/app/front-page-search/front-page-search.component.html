@@ -10,20 +10,23 @@
       <div class="col offset-xl3 xl6 offset-m2 m8 offset-s0 s12">
         <div class="card white">
           <div class="card-content grey-text">
-            <span class="card-title">Enter the name of a book or user...</span>
+            <span class="card-title">Enter the name of an item...</span>
 
             <div class="row">
-              <div class="col s8">
-                <div class="input-field">
-                  <input id="mytext" type="text">
-                  <label for="mytext">Suche...</label>
+              <form [formGroup]="searchForm" (ngSubmit)="onSubmitSearch(searchForm.value)">
+                <div class="col s8">
+                  <div class="input-field">
+                    <input id="search-input" formControlName="query" type="text">
+                    <label for="search-input">Suche...</label>
+                  </div>
                 </div>
-              </div>
-              <div class="col s4">
-                <button class="btn waves-effect waves-light blue" style="margin-top: 25px; width: 100%" type="submit" name="action">Suche
-                  <i class="material-icons right">send</i>
-                </button>
-              </div>
+                <div class="col s4">
+                  <button class="btn waves-effect waves-light blue" style="margin-top: 25px; width: 100%" type="submit">
+                    Suche
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </form>
             </div>
             <span class="card-title">...or scan a bar code.</span>
 
@@ -33,7 +36,6 @@
         </div>
       </div>
     </div>
-
 
   </div>
 </div>
