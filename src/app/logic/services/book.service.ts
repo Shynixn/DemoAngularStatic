@@ -26,4 +26,23 @@ export class BookService {
       })
     );
   }
+
+  /**
+   * Gets a list of books for the given query request.
+   * @param query Quest.
+   */
+  getGoogleBooks(query: string): Observable<Book[]> {
+    console.log("Request Google: " + query);
+    return this.http.get<GoogleBookResponse>("https://www.googleapis.com/books/v1/volumes?q=" + query).pipe(
+      map(response => {
+        console.log("item:" + JSON.stringify(response));
+        return response.items.map(item => {
+          console.log("Single:" + item["volumeInfo"]["title"]);
+          return ({
+            name: item["volumeInfo"]["title"]
+          })
+        });
+      })
+    );
+  }
 }

@@ -8,3 +8,11 @@ export const loadBooks = createAction("[Books] loading", props<{ offset: number,
  * Notifies that a stream of books has been loaded.
  */
 export const loadedBooks = createAction("[Books] loaded", props<{ books: Book[] }>());
+/**
+ * Requests to load the google books for the given query.
+ */
+export const loadGoogleBooks = createAction("[Books] google loading", props<{ query: string }>());
+/**
+ * Notifies that a stream of Google books has been loaded.
+ */
+export const loadedGoogleBooks = createAction("[Books] google loaded", props<{ books: Book[] }>());

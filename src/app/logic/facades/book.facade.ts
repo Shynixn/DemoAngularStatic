@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs";
 import {select, Store} from "@ngrx/store";
-import {loadBooks} from "../actions/book.actions";
+import {loadBooks, loadGoogleBooks} from "../actions/book.actions";
 import {allBooks} from "../selectors/book.selector";
 
 @Injectable()
@@ -24,6 +24,6 @@ export class BookFacade {
    */
   loadBooks() {
     console.log("Load books");
-    this.store.dispatch(loadBooks({limit: 100, offset: 0}))
+    this.store.dispatch(loadGoogleBooks({query : "Harry"}))
   }
 }
