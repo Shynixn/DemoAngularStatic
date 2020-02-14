@@ -21,7 +21,7 @@ export class BookService {
       map(response => {
         console.log("item:" + response);
         return response.results.map(item => ({
-          name: item.name
+          name: item.name,
         }));
       })
     );

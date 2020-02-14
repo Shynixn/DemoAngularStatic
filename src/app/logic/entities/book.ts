@@ -1,3 +1,7 @@
 type Book = {
-  name: string
+  name: string,
+  isbn : string,
+  description : string,
+  releaseDate : Date,
+  author : string
 }
