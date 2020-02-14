@@ -12,7 +12,7 @@
       <p>{{listItem.title}}</p>
     </div>
     <div class="card-action">
-      <a href="#">Öffnen</a>
+      <a [routerLink]="[listItem.detailLink]" routerLinkActive="active"  class="blue-text">Öffnen</a>
     </div>
   </div>
 </div>

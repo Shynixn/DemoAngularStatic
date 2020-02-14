@@ -27,6 +27,8 @@ import { ItemListComponent } from './item-list/item-list.component';
 import { ItemListItemComponent } from './item-list-item/item-list-item.component';
 import { PageCollectionComponent } from './page-collection/page-collection.component';
 import { PageHomeComponent } from './page-home/page-home.component';
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { PageHomeComponent } from './page-home/page-home.component';
     ItemListComponent,
     ItemListItemComponent,
     PageCollectionComponent,
-    PageHomeComponent
+    PageHomeComponent,
+    BookdetailsComponent
   ],
   imports: [
     BrowserModule,

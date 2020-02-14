@@ -32,42 +32,50 @@ export class ItemListComponent implements OnInit {
       let item1: ListItem = {
         title: "meme",
         previewImage: "no",
-        backgroundColor: "blue"
+        backgroundColor: "blue",
+        detailLink : "book/1"
       };
       let item2: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "light-blue"
+        backgroundColor: "light-blue",
+        detailLink : "book/2"
       };
       let item3: ListItem = {
         title: "This is a very long",
         previewImage: "no",
-        backgroundColor: "blue"
+        backgroundColor: "blue",
+        detailLink : "book/3"
       };
       let item4: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "blue"
+        backgroundColor: "blue",
+        detailLink : "book/4"
       };
       let item5: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "blue"
+        backgroundColor: "blue",
+        detailLink : "book/5"
       };
       let item6: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "purple"
+        backgroundColor: "purple",
+        detailLink : "book/6"
       };
       let item7: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "green"
+        backgroundColor: "green",
+        detailLink : "book/7"
       };
       let item8: ListItem = {
         title: "This is a very long title",
         previewImage: "no",
-        backgroundColor: "orange"
+        backgroundColor: "orange",
+        detailLink : "book/8"
       };
       observer.next(Array(item1, item2, item3, item4, item5, item6, item7, item8));
       observer.complete();
