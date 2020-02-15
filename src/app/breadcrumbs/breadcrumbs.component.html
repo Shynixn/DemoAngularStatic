@@ -1,0 +1,9 @@
+<nav class="light-blue" style="box-shadow: none!important;padding-left: 25px">
+  <div class="nav-wrapper">
+    <div class="col s12">
+      <ng-container *ngFor="let item of listOfBreadCrumbs">
+        <a [routerLink]="[item.link]" routerLinkActive="active" class="breadcrumb">{{item.displayName}}</a>
+      </ng-container>
+    </div>
+  </div>
+</nav>

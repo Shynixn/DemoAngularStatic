@@ -22,6 +22,10 @@ export class BookService {
         console.log("item:" + response);
         return response.results.map(item => ({
           name: item.name,
+          isbn: "",
+          description: "",
+          releaseDate: new Date(),
+          author: ""
         }));
       })
     );
@@ -39,7 +43,11 @@ export class BookService {
         return response.items.map(item => {
           console.log("Single:" + item["volumeInfo"]["title"]);
           return ({
-            name: item["volumeInfo"]["title"]
+            name: item["volumeInfo"]["title"],
+            isbn: "",
+            description: "",
+            releaseDate: new Date(),
+            author: ""
           })
         });
       })

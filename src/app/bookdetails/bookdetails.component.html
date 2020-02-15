@@ -1,64 +1,79 @@
-<div class="section" style="margin-left: 25px; margin-right: 25px">
-  <div class="row">
-    <div class="col s6">
-      <div class="card">
-        <div class="card-content" style="margin: 20px">
-          <div class="row">
-            <div class="col s4">
-              <img src="assets/image/978-0132350884.jpg" style="max-height: 250px">
-            </div>
-            <div class="col s8">
+<div class="white">
+  <app-breadcrumbs [listOfBreadCrumbs]="way"></app-breadcrumbs>
+  <div class="section" style="margin-left: 25px; margin-right: 25px">
+    <div class="row">
+      <div class="col s6">
+        <div class="card">
+          <div class="card-content" style="margin: 20px">
+            <form [formGroup]="editForm" (ngSubmit)="onSave()">
               <div class="row">
-                <div class="col offset-s2 s5">
-                  <button *ngIf="editable" class="btn waves-light green" style="width: 100%" (click)="save()">
-                    Save
-                    <i class="material-icons right">save</i>
-                  </button>
+                <div class="col s4">
+                  <img src="assets/image/978-0132350884.jpg" style="max-height: 250px">
                 </div>
-                <div class="col s5">
-                  <button *ngIf="!editable" class="btn waves-light blue" style="width: 100%"
-                          (click)="toggleEditState()">
-                    Edit
-                    <i class="material-icons right">edit</i>
-                  </button>
-                  <button *ngIf="editable" class="btn waves-light red" style="width: 100%" (click)="toggleEditState()">
-                    Cancel
-                    <i class="material-icons right">cancel</i>
-                  </button>
+                <div class="col s8">
+                  <div class="row">
+                    <div class="col offset-s2 s5">
+                      <button *ngIf="editable" class="btn waves-light green" style="width: 100%" type="submit">
+                        Save
+                        <i class="material-icons right">save</i>
+                      </button>
+                    </div>
+                    <div class="col s5">
+                      <button *ngIf="!editable" class="btn waves-light blue" style="width: 100%"
+                              (click)="toggleEditState()">
+                        Edit
+                        <i class="material-icons right">edit</i>
+                      </button>
+                      <button *ngIf="editable" class="btn waves-light red" style="width: 100%"
+                              (click)="toggleEditState()">
+                        Cancel
+                        <i class="material-icons right">cancel</i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field">
+                      <input *ngIf="editable" formControlName="isbn" id="isbn" type="text" required="" class="validate">
+                      <label *ngIf="editable" for="isbn">ISBN*</label>
+                      <h6 *ngIf="!editable"><span class="grey-text">ISBN*: </span>{{book.isbn}}</h6>
+                    </div>
+                    <div class="input-field">
+                      <input *ngIf="editable" formControlName="author" id="author" type="text" class="validate">
+                      <label *ngIf="editable" for="author">Author</label>
+                      <h6 *ngIf="!editable"><span class="grey-text">Author*: </span>{{book.author}}</h6>
+                    </div>
+                    <div class="input-field">
+                      <input *ngIf="editable" formControlName="releaseDate" id="release" type="text" class="datepicker"
+                             [textContent]="book.releaseDate">
+                      <label *ngIf="editable" for="release">Release Date</label>
+                      <h6 *ngIf="!editable"><span
+                        class="grey-text">Release Date: </span>{{book.releaseDate.toDateString()}}
+                      </h6>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field">
-                  <input *ngIf="editable" id="isbn" type="text" required="" class="validate">
-                  <label *ngIf="editable" for="isbn">ISBN*</label>
-                  <h6 *ngIf="!editable"><span class="grey-text">ISBN*: </span>{{book.isbn}}</h6>
+                  <h6 *ngIf="!editable"><span
+                    class="grey-text">Name: </span>{{book.name}}</h6>
+                  <textarea *ngIf="editable" formControlName="name" id="name" class="materialize-textarea"></textarea>
+                  <label *ngIf="editable" for="name">Name</label>
                 </div>
                 <div class="input-field">
-                  <input *ngIf="editable" id="author" type="text" class="validate">
-                  <label *ngIf="editable" for="author">Author</label>
-                  <h6 *ngIf="!editable"><span class="grey-text">Author*: </span>{{book.author}}</h6>
-                </div>
-                <div class="input-field">
-                  <input *ngIf="editable" id="release" type="text" class="datepicker">
-                  <label *ngIf="editable" for="release">Release Date</label>
-                  <h6 *ngIf="!editable"><span class="grey-text">Release Date: </span>{{book.releaseDate.toDateString()}}</h6>
+                  <h6 *ngIf="!editable"><span
+                    class="grey-text">Description: </span>{{book.description}}</h6>
+                  <textarea *ngIf="editable" formControlName="description" id="description" class="materialize-textarea"></textarea>
+                  <label *ngIf="editable" for="description">Description</label>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field">
-              <textarea id="name" type="text" class="materialize-textarea"></textarea>
-              <label for="name">Name</label>
-            </div>
-            <div class="input-field">
-              <textarea id="description" class="materialize-textarea"></textarea>
-              <label for="description">Description</label>
-            </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>
+
 

@@ -33,6 +33,10 @@ export class BookdetailsComponent implements OnInit {
    */
   editForm: FormGroup;
 
+  /**
+   * Creates a new instance of the constructor with dependencies.
+   * @param formBuilder formBuilder dependency.
+   */
   constructor(private formBuilder: FormBuilder) {
     this.book = {
       name: "Demo Book",
@@ -44,13 +48,28 @@ export class BookdetailsComponent implements OnInit {
     this.convertBookToEditForm()
   }
 
+  // region LifeCycle
+  /**
+   * Life Cycle method.
+   */
   ngOnInit() {
   }
 
+  /**
+   * Life Cycle method.
+   */
   ngAfterViewInit() {
     M.Datepicker.init(document.querySelectorAll('.datepicker'));
   }
 
+  /**
+   * Life Cycle method.
+   */
+  ngAfterViewChecked() {
+    M.updateTextFields();
+  }
+
+  // endregion
   /**
    * Toggles the editable state.
    */
@@ -61,21 +80,24 @@ export class BookdetailsComponent implements OnInit {
     }
   }
 
-  ngAfterViewChecked() {
-    M.updateTextFields();
-  }
-
   /**
    * Executes a book save.
    */
-  onSave(submitData) {
-
+  onSave() {
+    this.convertEditFormToBook();
     this.toggleEditState();
     M.toast({html: 'This book was successfully saved'});
+  }
 
-    this.book.isbn = submitData.isbn;
-    this.book.author = submitData.author;
-    this.book.releaseDate = new Date(submitData.releaseDate);
+  /**
+   * Converts the edit from to a book.
+   */
+  private convertEditFormToBook() {
+    this.book.name = this.editForm.value.name;
+    this.book.description = this.editForm.value.description;
+    this.book.isbn = this.editForm.value.isbn;
+    this.book.author = this.editForm.value.author;
+    this.book.releaseDate = new Date(this.editForm.value.releaseDate);
   }
 
   /**
@@ -83,6 +105,8 @@ export class BookdetailsComponent implements OnInit {
    */
   private convertBookToEditForm() {
     this.editForm = this.formBuilder.group({
+      name: this.book.name,
+      description: this.book.description,
       isbn: this.book.isbn,
       author: this.book.author,
       releaseDate: this.book.releaseDate.toDateString()

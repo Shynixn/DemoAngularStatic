@@ -29,6 +29,7 @@ import { PageCollectionComponent } from './page-collection/page-collection.compo
 import { PageHomeComponent } from './page-home/page-home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import {RouterModule} from "@angular/router";
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {RouterModule} from "@angular/router";
     ItemListItemComponent,
     PageCollectionComponent,
     PageHomeComponent,
-    BookdetailsComponent
+    BookdetailsComponent,
+    BreadcrumbsComponent
   ],
   imports: [
     BrowserModule,
