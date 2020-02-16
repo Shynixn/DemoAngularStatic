@@ -1,7 +1,16 @@
 <div class="white">
   <app-breadcrumbs [listOfBreadCrumbs]="way"></app-breadcrumbs>
-  <div class="section" style="margin-left: 25px; margin-right: 25px">
+  <div class="section">
     <div class="row">
+      <div class="col s2">
+        <div class="card">
+          <div class="card-content">
+            <h6 style="margin-top: 0px;margin-bottom: 25px; margin-left: 10px"><u>Selected Books</u></h6>
+            <app-shopping-cart-item></app-shopping-cart-item>
+            <app-shopping-cart-item></app-shopping-cart-item>
+          </div>
+        </div>
+      </div>
       <div class="col s6">
         <div class="card">
           <div class="card-content" style="margin: 20px">
@@ -17,12 +26,15 @@
                         Save
                         <i class="material-icons right">save</i>
                       </button>
-                    </div>
-                    <div class="col s5">
-                      <button *ngIf="!editable" class="btn waves-light blue" style="width: 100%"
-                              (click)="toggleEditState()">
+                      <button *ngIf="!editable" class="btn white black-text" style="width: 100%" (click)="toggleEditState()">
                         Edit
                         <i class="material-icons right">edit</i>
+                      </button>
+                    </div>
+                    <div class="col s5">
+                      <button *ngIf="!editable" class="btn waves-light green" style="width: 100%" (click)="toggleEditState()">
+                        Hand in / Lend out
+                        <i class="material-icons right">book</i>
                       </button>
                       <button *ngIf="editable" class="btn waves-light red" style="width: 100%"
                               (click)="toggleEditState()">
@@ -70,6 +82,9 @@
             </form>
           </div>
         </div>
+      </div>
+      <div class="col s4">
+        <h1>Hello World</h1>
       </div>
     </div>
   </div>

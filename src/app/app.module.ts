@@ -30,6 +30,7 @@ import { PageHomeComponent } from './page-home/page-home.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import {RouterModule} from "@angular/router";
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { ShoppingCartItemComponent } from './shopping-cart-item/shopping-cart-item.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     PageCollectionComponent,
     PageHomeComponent,
     BookdetailsComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    ShoppingCartItemComponent
   ],
   imports: [
     BrowserModule,
